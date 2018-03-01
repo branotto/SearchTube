@@ -19,23 +19,44 @@
    	<link rel="stylesheet" type="text/css" href="main.css">	
 </head>
 <body>
-	<header role="banner">
-		<h1>Welcome to SearchTube! Easily find videos by keyword!</h1>
+	<header role="banner" class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1>Welcome to SearchTube!</h1>
+
+			</div>
+		</div>
+		
 	</header>
 
 	<main role="main">
-		<section class="js-search">
+		<section class="container">
+			<div class="row">
+				<div class="col-8">
+					<form action ='#' class="js-search">
+						<input class="text_input" type="text" name="searchQuery" value="Search for ...">
+						<input class="submit_button" type="submit" value="Search YouTube">
+					</form>
+				</div>
+			</div>
+
 			
 		</section>
 
 		<section class="js-results">
 			
+		
 		</section>
 		
 	</main>
 
-	<footer role="contentinfo">
-		
+	<footer role="contentinfo" class="container">
+		<div class="row">
+			<div class="col-12">
+				&copy Brandon Otto 2018
+			</div>
+		</div>
+	
 	</footer>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

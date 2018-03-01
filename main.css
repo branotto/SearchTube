@@ -1,7 +1,24 @@
+body {
+	background: #FFFFFF;
+}
+
 header {
-	font-family: 'Alegreya', serif; ;
+	font-family: 'Alegreya', serif;
+	border: 1px solid #F5F5F5;
+	padding: 5px;
+	margin 10px; 
 }
 
 main {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.js-search .text_input {
+	width = 100%;
+	border-radius: 1px;
+}
+
+.js-search .submit_button {
+	background = blue;
+	border-radius: 1px;
 }

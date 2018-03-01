@@ -2,6 +2,11 @@
 		box-sizing: border-box; 
 	}
 
+.container {
+	width: 100%;
+	
+}
+
 .row {
   		max-width: 1000px;
   		padding-left: 20px;
@@ -20,7 +25,7 @@
   		clear: both;
 	}
 
-.col-3, .col-4, .col-6 , .col-8, .col-12 {
+.col-3, .col-4, .col-6, .col-8, .col-12 {
   		float: left;
   		padding-left: 1.041666667%;
   		padding-right: 1.04166667%;
