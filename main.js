@@ -1,33 +1,46 @@
-const YOUTUBE_SEARCH_URL = 'www.something.com';
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
+
+//Render each item
+function renderResult(item)
+{
+	return 
+	`<li>
+		<img>	
+	</li>
+	`
+}
 
 
 //Displays the search results
-function displayYouTubeSearchData(){
-	console.log('displaying results ... soon');
+function displayYouTubeSearchData(response){
+	// const results = data.items.map((item, index) => renderResult(item));
+	
+	
+	//console.log(response.items["0"].snippet.thumbnails.high);
 }
 
 
 //Requests data using the YouTube Search API
 function queryDataFromAPI(searchTerm, callback){
-	console.log('searching for ${searchTerm}');
+	console.log(`searching for ${searchTerm}`);
 
 	const query = {
-		q:`${searchTerm}`
-	}
+                'part': 'snippet',
+                'q': searchTerm,
+                'key': API_KEY
+            };
 
-	$.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+	($.getJSON(YOUTUBE_SEARCH_URL, query, callback));
 }
 
 
 //Search button listener
 function handleSearchRequest()
 {
-	console.log("listening for form submit");
 
 	$('.js-search').on('submit', function(event){
 		event.preventDefault();
-		console.log('search pressed');
 
 		const queryObject = $(event.currentTarget).find('.js-query');
 		const queryValue = queryObject.val();
@@ -43,7 +56,6 @@ function handleSearchRequest()
 //Main Callback function
 function handleCallbacks()
 {
-	//console.log("handleCallbacks ran");
 
 	handleSearchRequest();
 }
