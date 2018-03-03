@@ -1,37 +1,67 @@
-const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+"use strict"
 
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
 
 //Render each item
-function renderResult(item)
+function renderResult(items)
 {
-	return 
-	`<li>
-		<img>	
-	</li>
-	`
+	let results = "";
+
+	for( let i = 0; i < items.length; i++)
+	{
+		results += 
+		`<li class='col-4 panel'>
+			<img src=${items[i].thumbnailURL} alt=${items[i].title}>
+			<p>${items[i].title}</p>
+		</li>
+		`
+	}
+
+	$('.js-results').html(results);
 }
-
-
-//Displays the search results
-function displayYouTubeSearchData(response){
-	// const results = data.items.map((item, index) => renderResult(item));
-	
-	
-	//console.log(response.items["0"].snippet.thumbnails.high);
-}
-
 
 //Requests data using the YouTube Search API
 function queryDataFromAPI(searchTerm, callback){
-	console.log(`searching for ${searchTerm}`);
-
 	const query = {
                 'part': 'snippet',
                 'q': searchTerm,
                 'key': API_KEY
             };
 
-	($.getJSON(YOUTUBE_SEARCH_URL, query, callback));
+	($.getJSON(YOUTUBE_SEARCH_URL, query, function(data){
+		
+		const response = data;
+
+		let responseCount = response.items.length;
+
+		let nextPage = response.nextPageToken;
+
+		let items = [];
+
+		for(let i = 0; i < responseCount; i++)
+		{
+			let item = {
+				title : response.items[i].snippet.title,
+
+				thumbnailURL : response.items[i].snippet.thumbnails.medium.url,
+
+				videoID : response.items[i].id.videoId
+
+			}
+
+			items.push(item);
+		
+		}
+
+		renderResult(items);
+	}));
+}
+
+//Displays the search results
+function displayYouTubeSearchData(response){
+	// const results = data.items.map((item, index) => renderResult(item));
+	
 }
 
 

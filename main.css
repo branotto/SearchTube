@@ -1,5 +1,6 @@
 body {
 	background: #FFFFFF;
+	
 }
 
 header {
@@ -21,4 +22,30 @@ main {
 .js-search .submit_button {
 	background = blue;
 	border-radius: 1px;
+}
+
+ul {
+	display: inline-block;
+	list-style-type: none;
+}
+
+ul li {
+	display: inline-block;
+}
+
+.panel {
+	border: 1px solid #333;
+	border-radius: 2px;
+	margin: 1px;
+}
+
+li p {
+	font-family: 'Open Sans', sans-serif;
+	color: blue;
+	font-size: 0.75em;
+}
+
+img {
+	width: 100%;
+
 }
