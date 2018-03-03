@@ -1,7 +1,7 @@
 "use strict"
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
-const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
+
 
 //Render each item
 function renderResult(items)
