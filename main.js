@@ -1,7 +1,7 @@
 "use strict"
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
-const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
+
 
 
 //Add button for displaying the previous and next page of results
