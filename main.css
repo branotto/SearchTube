@@ -15,12 +15,12 @@ main {
 }
 
 .js-search .text_input {
-	width = 100%;
+	width: 75%;
 	border-radius: 1px;
 }
 
 .js-search .submit_button {
-	background = blue;
+	background:; blue;
 	border-radius: 1px;
 }
 
@@ -31,12 +31,6 @@ ul {
 
 ul li {
 	display: inline-block;
-}
-
-.panel {
-	border: 1px solid #333;
-	border-radius: 2px;
-	margin: 1px;
 }
 
 li p {

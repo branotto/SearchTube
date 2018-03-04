@@ -1,6 +1,7 @@
 "use strict"
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
 
 
 //Add button for displaying the previous and next page of results
@@ -51,7 +52,7 @@ function queryDataFromAPI(searchTerm, callback){
 	($.getJSON(YOUTUBE_SEARCH_URL, query, function(data){
 		
 		const response = data;
-		
+		console.log(response);
 		let responseCount = response.items.length;
 
 		let nextPage = response.nextPageToken;
