@@ -1,6 +1,21 @@
 "use strict"
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
+
+//Add button for displaying the previous and next page of results
+function addResultButtons(){
+
+	const addButtons = 
+	`
+	<button type="button" class="prev">Previous</button>
+	<button type="button" class="next">Next</button>
+	`
+
+	$('.js-button-container').html(addButtons);
+
+	//TODO - ADD LISTENER TO BUTTONS AND DISPLAY THE RESULTS ACCORDINGLY
+}
 
 
 //Render each item
@@ -12,14 +27,18 @@ function renderResult(items)
 	{
 		results += 
 		`<li class='col-4 panel'>
+			<a href="http://www.youtube.com/watch?v=${items[i].videoID}" title="Visit YouTube to watch ${items[i].title}.">
 			<img src=${items[i].thumbnailURL} alt=${items[i].title}>
+			</a>
 			<p>${items[i].title}</p>
 		</li>
 		`
 	}
 
+
 	$('.js-results').html(results);
 }
+
 
 //Requests data using the YouTube Search API
 function queryDataFromAPI(searchTerm, callback){
@@ -32,7 +51,7 @@ function queryDataFromAPI(searchTerm, callback){
 	($.getJSON(YOUTUBE_SEARCH_URL, query, function(data){
 		
 		const response = data;
-
+		
 		let responseCount = response.items.length;
 
 		let nextPage = response.nextPageToken;
@@ -55,8 +74,10 @@ function queryDataFromAPI(searchTerm, callback){
 		}
 
 		renderResult(items);
+		addResultButtons();
 	}));
 }
+
 
 //Displays the search results
 function displayYouTubeSearchData(response){
