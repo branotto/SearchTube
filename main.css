@@ -1,32 +1,55 @@
 body {
-	background: #FFFFFF;
-	
+	background: #e2d4cc;
+	font-family: 'Open Sans', sans-serif;
+	color: #3d3835;
 }
 
 header {
+	background: #FFF;
+	padding: 1em 2em;
+
+}
+
+header a {
+	text-decoration: none;
+	color: #e2d4cc;
+	font-size: 1.0em;
+	font-weight: 700;
+
+}
+
+h1 {
 	font-family: 'Alegreya', serif;
-	border: 1px solid #F5F5F5;
-	padding: 5px;
-	margin 10px; 
+	text-align: center;
+	
 }
 
-main {
-	font-family: 'Open Sans', sans-serif;
+.text_input {
+	border-radius: 10px;
+	outline:none;
 }
 
-.js-search .text_input {
-	width: 75%;
-	border-radius: 1px;
+.text_input:hover, .text_input:focus {
+	background-color: #3d3835;
+	color: #FFF; 
 }
 
-.js-search .submit_button {
-	background:; blue;
-	border-radius: 1px;
+.my_button {
+	background-color: #FFF;
+	border-radius: 10px;
+	outline:none;
+}
+
+.my_button:hover, .my_button:focus{
+	background-color: #3d3835;
+	color: #FFF; 
 }
 
 ul {
 	display: inline-block;
 	list-style-type: none;
+	margin: 0 ;
+	padding: 0;
 }
 
 ul li {
@@ -34,12 +57,14 @@ ul li {
 }
 
 li p {
-	font-family: 'Open Sans', sans-serif;
-	color: blue;
 	font-size: 0.75em;
 }
 
 img {
 	width: 100%;
 
+}
+
+footer {
+	text-align: center;
 }

@@ -20,33 +20,30 @@
 </head>
 <body>
 	<header role="banner" class="container">
-		<div class="row">
-			<div class="col-12">
-				<h1>Welcome to SearchTube!</h1>
-
-			</div>
-		</div>
-		
+		<a href="https://github.com/branotto?tab=repositories">View my other projects </a>
 	</header>
 
 	<main role="main">
 		<section class="container">
 			<div class="row">
-				<div class="col-8">
-					<form action ='#' class="js-search">
-						<input class="text_input js-query" type="text" name="searchQuery" placeholder="Search for ...">
-						<input class="submit_button" type="submit" value="Search YouTube">
-					</form>
+				<div class="col-12">
+					<h1>Welcome to SearchTube!</h1>
 				</div>
 			</div>
-
-			
+			<div class="row">
+				<form action ='#' class="js-search">
+					<input class="text_input js-query col-8" type="text" name="searchQuery" placeholder="Search for ..." required>
+					<input class="submit_button my_button col-4" type="submit" value="Search YouTube">
+				</form>
+			</div>
 		</section>
 			
 		<section class="container">
 			<div class="row">
 				<div class="js-button-container col-12">
 				</div>
+			</div>
+			<div class="row">
 					<ul class="js-results col-12">
 				
 					</ul>
@@ -56,12 +53,7 @@
 	</main>
 
 	<footer role="contentinfo" class="container">
-		<div class="row">
-			<div class="col-12">
-				&copy Brandon Otto 2018
-			</div>
-		</div>
-	
+		&copy Brandon Otto 2018
 	</footer>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
