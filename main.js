@@ -71,6 +71,8 @@ function addResultButtons(){
 }
 
 
+
+
 //Render each item
 function renderResult(items)
 {
@@ -93,10 +95,17 @@ function renderResult(items)
 	$('.js-results').html(results);
 }
 
+function displayResultCounts(responseCount, totalResponses){
+	let resultCount = 
+	`<p>Displaying ${responseCount} videos out of ${totalResponses} videos.</p>`
+
+	$('.js-results-count-container').html(resultCount);
+}
 
 function parseResults(query, response){
 	
 	let responseCount = response.items.length;
+	let totalResponses = response.pageInfo.totalResults;
 
 	let nextPage = response.nextPageToken;
 		
@@ -117,6 +126,7 @@ function parseResults(query, response){
 	
 	}
 
+	displayResultCounts(responseCount, totalResponses);
 	renderResult(items);
 	addResultButtons();
 	changePageResults(query, nextPage);
