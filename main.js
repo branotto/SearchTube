@@ -7,19 +7,6 @@ const API_KEY = 'AIzaSyD1ERIZONWPADkuHsZh8jkZ_bE5_ZT_X5o';
 //Adds listeners to change the page results
 function changePageResults(query, nextToken ){
 
-	/* PREVIOUS BUTTON NOT FUNCTIONING
-	if(prevToken === -1)
-	{
-		$('.js-prev-button').attr("disabled");
-
-		$('.js-prev-button').on('click', function(event){
-			alert("On Page 1 of results.");
-		});
-
-	} else {
-		$('.js-prev-button').removeAttr("disabled");
-	}*/
-
 
 	$('.js-next-button').on('click', function(event){
 		event.preventDefault();
@@ -35,32 +22,14 @@ function changePageResults(query, nextToken ){
 		}));
 	});
 
-	/* PREVIOUS BUTTON NOT FUNCTIONING
-	$('.js-prev-button').on('click', function(event){
-		event.preventDefault();
-
-		query.pageToken = prevToken;
-
-		($.getJSON(YOUTUBE_SEARCH_URL, query, function(data){
-		
-			const response = data;
-			parseResults(query, response);
-			
-		}));
-	});*/
+	
 }
 
 
 //Add button for displaying the previous and next page of results
 function addResultButtons(){
 
-	const addButtons = 
-	
-	/* Previous Button Not functioning
-	`
-	<button type="button" class="js-prev-button my_button">Previous</button>
-	<button type="button" class="js-next-button my_button">Next</button>
-	`;*/
+	const addButtons =
 
 	`
 	<button type="button" class="js-next-button my_button">Next</button>
@@ -69,6 +38,8 @@ function addResultButtons(){
 	$('.js-button-container').html(addButtons);
 
 }
+
+
 
 
 //Render each item
@@ -81,7 +52,7 @@ function renderResult(items)
 	for( let i = 0; i < items.length; i++)
 	{
 		results += 
-		`<li class='col-4 panel'>
+		`<li class='col-4 panel item'>
 			<a href="http://www.youtube.com/watch?v=${items[i].videoID}" title="Visit YouTube to watch ${items[i].title}.">
 			<img src=${items[i].thumbnailURL} alt=${items[i].title}>
 			</a>
@@ -93,10 +64,17 @@ function renderResult(items)
 	$('.js-results').html(results);
 }
 
+function displayResultCounts(responseCount, totalResponses){
+	let resultCount = 
+	`<p>Displaying ${responseCount} videos out of ${totalResponses} videos.</p>`
+
+	$('.js-results-count-container').html(resultCount);
+}
 
 function parseResults(query, response){
 	
 	let responseCount = response.items.length;
+	let totalResponses = response.pageInfo.totalResults;
 
 	let nextPage = response.nextPageToken;
 		
@@ -117,6 +95,7 @@ function parseResults(query, response){
 	
 	}
 
+	displayResultCounts(responseCount, totalResponses);
 	renderResult(items);
 	addResultButtons();
 	changePageResults(query, nextPage);

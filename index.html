@@ -32,15 +32,18 @@
 			</div>
 			<div class="row">
 				<form action ='#' class="js-search">
-					<input class="text_input js-query col-8" type="text" name="searchQuery" placeholder="Search for ..." required>
+					<label for="search_query">Enter a keyword</label>
+					<input id="search_query" class="text_input js-query col-8" type="text" name="searchQuery" placeholder="Search for ..." aria-required="true">
 					<input class="submit_button my_button col-4" type="submit" value="Search YouTube">
 				</form>
 			</div>
 		</section>
 			
-		<section class="container">
+		<section class="container" aria-live="assertive">
 			<div class="row">
-				<div class="js-button-container col-12">
+				<div class="js-button-container col-4">
+				</div>
+				<div class="js-results-count-container col-8">
 				</div>
 			</div>
 			<div class="row">
